@@ -1,0 +1,26 @@
+{
+  "name": "gdrivebackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vishnu-vkn/gdrivebackend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Vishnu-vkn/gdrivebackend/issues"
+  },
+  "homepage": "https://github.com/Vishnu-vkn/gdrivebackend#readme",
+  "dependencies": {
+    "ejs": "^4.0.1",
+    "express": "^5.2.1"
+  }
+}
