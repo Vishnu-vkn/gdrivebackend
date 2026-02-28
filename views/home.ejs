@@ -6,24 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+  rel="stylesheet"
+/>
 
 </head>
 
 <body>
     <main class="p-4 bg-gray-100 dark:bg-gray-800 h-screen w-screen ">
 
-        <button class="bg-blue-500 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Upload File
-        </button>
+        <button 
+            onclick="showPopUp()" 
+               
+            class="bg-blue-500 mt-5 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Upload File
+                
+         </button>
         
 
-        <div class="pop  backdrop-blur fixed top-0 left-0 h-screen w-screen flex items-center justify-center">
+        <div class="pop hidden fixed top-0 left-0 h-screen w-screen flex items-center justify-center">
 
             <form 
             action="/upload-file"
             method="post"
             enctype="multipart/form-data"
             >
+
+
 
        
 
@@ -44,16 +54,32 @@
                 </label>
             </div>
 
-            <button class="bg-gray-500 mt-5 cursor-pointer hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+            <button 
+               
+            class="bg-gray-500 mt-5 cursor-pointer hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                 Upload File
             </button>
 
              </form>
 
+             <button class="absolute cursor-pointer top-4 right-4 text-gray-500 dark:text-gray-400 text-xl"
+             onclick="hidePopUp()">
+                <i class="ri-close-line"></i>
+             </button>
+
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    <script>
+        function showPopUp(){
+            document.querySelector(".pop").classList.remove("hidden");
 
+        }
+
+        function hidePopUp(){
+            document.querySelector(".pop").classList.add("hidden");
+        }
+    </script>
 </body>
 
 </html>
