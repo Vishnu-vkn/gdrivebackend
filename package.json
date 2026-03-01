@@ -20,13 +20,18 @@
   },
   "homepage": "https://github.com/Vishnu-vkn/gdrivebackend#readme",
   "dependencies": {
+    "appwrite": "^22.4.1",
     "bcrypt": "^6.0.0",
+    "cloudinary": "^2.9.0",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.3.1",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
     "express-validator": "^7.3.1",
     "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.2.1"
+    "mongoose": "^9.2.1",
+    "multer": "^2.1.0",
+    "node-appwrite": "^22.1.2",
+    "streamifier": "^0.1.1"
   }
 }
