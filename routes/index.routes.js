@@ -1,17 +1,30 @@
 const express = require('express');
 const router = express.Router();
 const streamifier = require('streamifier');
-const fileModel= require('../models/file.model');
+const fileModel = require('../models/file.model');
+const authMiddleware = require("../middlewares/auth")
 
 
 const upload = require('../config//multer.config')
 const cloudinary = require("../config/cloud.config")
 
-router.get('/home',(req,res)=>{
-    res.render('home'); 
+router.get('/home', authMiddleware, async(req, res) => {
+  
+  /*Display files in frontend */
+
+  const userFiles = await fileModel.find({
+      user : req.user.userId
+  })
+
+  console.log(userFiles)
+
+  
+  res.render('home',{
+    files : userFiles
+  });
 })
 
-router.post("/upload", upload.single("file"), async (req, res) => {
+router.post("/upload", authMiddleware, upload.single("file"), async (req, res) => {
   try {
     const streamUpload = () => {
       return new Promise((resolve, reject) => {
@@ -28,21 +41,25 @@ router.post("/upload", upload.single("file"), async (req, res) => {
     };
 
     const result = await streamUpload();
-
-    res.json({
-      message: "Uploaded Successfully",
+    const newFile = await fileModel.create({
+      public_id: result.public_id,
       url: result.secure_url,
-      public_id: result.public_id
-    });
+      originalname: req.file.originalname,
+      size: req.file.size,
+      user: req.user.userId
+    })
+
+    res.json(newFile)
+
+
 
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 
-  
 
 });
 
 
 
-module.exports=router;
+module.exports = router;

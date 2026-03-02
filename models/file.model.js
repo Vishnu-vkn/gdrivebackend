@@ -14,7 +14,7 @@ const fileSchema=new mongoose.Schema({
 
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Users',
+      ref: 'user',
       required: [true,'User is required']
     }
 

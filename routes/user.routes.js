@@ -4,7 +4,7 @@ const { body, validationResult } = require("express-validator");
 const userModel = require("../models/user.model");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const user = require("../models/user.model");
+
 
 /*  /user/test */
 router.get('/register', (req, res) => {
@@ -89,11 +89,6 @@ router.post("/login",
     }
 
 )
-
-
-
-
-
 
 
 
