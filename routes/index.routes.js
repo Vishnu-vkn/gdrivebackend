@@ -13,14 +13,15 @@ router.get('/home', authMiddleware, async(req, res) => {
   /*Display files in frontend */
 
   const userFiles = await fileModel.find({
-      user : req.user.userId
+      user : req.user.userId 
   })
 
-  console.log(userFiles)
+  
+  console.log(userFiles);
 
   
   res.render('home',{
-    files : userFiles
+    files :  userFiles
   });
 })
 
