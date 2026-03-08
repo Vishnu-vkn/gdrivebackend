@@ -69,10 +69,19 @@
 
         </div>
 
+         <!-- displaying org file name in frontend   -->
+
         <div class="files mt-3 flex flex-col gap-2">
             <% files.forEach((file)=>{ %>
-            <div class="p-2 cursor-pointer rounded-md bg-gray-300">
+            <div class="p-2 cursor-pointer rounded-md bg-gray-300 flex justify-between">
                 <h1><%= file.originalname %></h1>
+
+                <a href="/download/<%= file._id %>" 
+                    class="text-blue-500 hover:text-blue-700"
+                    download="<%= file.originalname %>">
+                    <i class="ri-download-line"></i>
+                </a>
+
             </div>
             <% }) %>
         </div>

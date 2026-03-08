@@ -16,7 +16,15 @@ const fileSchema=new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'user',
       required: [true,'User is required']
-    }
+    },
+
+    format: {type:String,
+      required:true
+    },
+
+  resource_type: {type:String,
+    required:true
+  }
 
 
 })
